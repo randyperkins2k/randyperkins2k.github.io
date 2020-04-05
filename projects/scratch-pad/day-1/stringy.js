@@ -44,7 +44,7 @@ function toUpperCase(string) {
  *      See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Using_global_and_ignore_with_replace()
  */
 function toDashCase(string) {
-    return string.replace(/\s/g, '-');
+    return string.replace(/\s/g, '-').toLowerCase();
 }
 
 /**
@@ -60,11 +60,9 @@ function toDashCase(string) {
  *      ensure uppercase and lowercase can be compared equally?
  */
 function beginsWith(string, char) {
-    // YOUR CODE BELOW HERE //
-
-    
-
-    // YOUR CODE ABOVE HERE //
+     if (string[0].toLowerCase() == char.toLowerCase()) {
+      return true;
+    } return false;
 }
 
 /**
@@ -80,11 +78,8 @@ function beginsWith(string, char) {
  *      ensure uppercase and lowercase can be compared equally?
  */
 function endsWith(string, char) {
-    // YOUR CODE BELOW HERE //
-
-
-
-    // YOUR CODE ABOVE HERE //
+    return string[string.length - 1]
+      .toLowerCase() === char[0].toLowerCase() ? true : false;
 }
 
 /**
@@ -93,11 +88,7 @@ function endsWith(string, char) {
  * TIP: What's the operator to concatenate two Strings?
  */
 function concat(stringOne, stringTwo) {
-    // YOUR CODE BELOW HERE //
-
-
-
-    // YOUR CODE ABOVE HERE //
+    return stringOne.concat(stringTwo);
 }
 
 /**
@@ -111,11 +102,7 @@ function concat(stringOne, stringTwo) {
  *      in an Array called args.
  */
 function join(stringOne, stringTwo) {
-    // YOUR CODE BELOW HERE //
-    var args = Array.from(arguments);
-
-
-    // YOUR CODE ABOVE HERE //
+    return [...arguments].join('');
 }
 
 /**
@@ -128,11 +115,7 @@ function join(stringOne, stringTwo) {
  * TIP: What property of the String do we need to compare?
  */
 function longest(stringOne, stringTwo) {
-    // YOUR CODE BELOW HERE //
-
-
-
-    // YOUR CODE ABOVE HERE //
+     return stringOne.length > stringTwo.length ? stringOne : stringTwo;
 }
 
 /**
@@ -143,11 +126,13 @@ function longest(stringOne, stringTwo) {
  * TIP: How can we compare Strings? Is 'a' greater than or less than 'b'?
  */
 function sortAscending(stringOne, stringTwo) {
-    // YOUR CODE BELOW HERE //
-
-
-
-    // YOUR CODE ABOVE HERE //
+    if (stringOne > stringTwo) {
+        return -1;
+    } else if (stringTwo > stringOne) { 
+        return 1;
+    } else if (stringTwo == stringOne) {
+        return 0;
+    }
 }
 
 
@@ -159,12 +144,13 @@ function sortAscending(stringOne, stringTwo) {
  * TIP: How can we compare Strings? Is 'a' greater than or less than 'b'?
  */
 function sortDescending(stringOne, stringTwo) {
-    // YOUR CODE BELOW HERE //
-
-
-
-
-    // YOUR CODE ABOVE HERE //
+    if (stringOne < stringTwo) {
+        return -1;
+    } else if (stringTwo < stringOne) { 
+        return 1;
+    } else if (stringTwo == stringOne) {
+        return 0;
+    }
 }
 
 

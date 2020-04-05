@@ -11,12 +11,7 @@
  * using console.log().
  */
 function printArrayValues(array) {
-  // YOUR CODE BELOW HERE //
-  
-  
-  
-  
-  // YOUR CODE ABOVE HERE //
+  return array.forEach((item) => {console.log(item)});
 }
 
 /** 
@@ -24,24 +19,14 @@ function printArrayValues(array) {
  * using console.log().
  */
 function printArrayValuesInReverse(array) {
-  // YOUR CODE BELOW HERE //
-  
-  
-  
-  
-  // YOUR CODE ABOVE HERE //
+  return array.reverse().forEach((item) => {console.log(item)});
 }
 
 /** 
  * Given an input Object, return an Array containing the Object keys.
  */
 function getObjectKeys(object) {
-  // YOUR CODE BELOW HERE //
-  
-  
-  
-  
-  // YOUR CODE ABOVE HERE //
+  return Object.keys(object);
 }
 
 /** 
@@ -49,49 +34,33 @@ function getObjectKeys(object) {
  * using console.log().
  */
 function printObjectKeys(object) {
-  // YOUR CODE BELOW HERE //
-  
-  
-  
-  
-  // YOUR CODE ABOVE HERE //
+  for (var key in object) {
+    console.log(key);
+  }
 }
 
 /** 
  * Given an input Object, return an Array containing the Object's values.
  */
 function getObjectValues(object) {
-  // YOUR CODE BELOW HERE //
-  
-  
-  
-  
-  // YOUR CODE ABOVE HERE //
+   return Object.values(object);
 }
 
-/** 
+/*
  * Given an input Object, loop over the Object and print its values 
  * using console.log().
  */
 function printObjectValues(object) {
-  // YOUR CODE BELOW HERE //
-  
-  
-  
-  
-  // YOUR CODE ABOVE HERE //
+  for (var key in object) {
+    console.log(object[key]);
+  }
 }
 
 /** 
  * Given an input Object, return the length of its key/value pairs
  */
 function getObjectLength(object) {
-  // YOUR CODE BELOW HERE //
-  
-  
-  
-  
-  // YOUR CODE ABOVE HERE //
+  return Object.keys(object).length;
 }
 
 /** 
@@ -99,12 +68,12 @@ function getObjectLength(object) {
  * print its values using console.log()?
  */
 function printObjectValuesInReverse(object) {
-  // YOUR CODE BELOW HERE //
-  
-  
-  
-  
-  // YOUR CODE ABOVE HERE //
+  var result = [];
+  for (var key in object) {
+    result.push(object[key]);
+  } for (var i = result.length - 1; i > -1; i--) {
+    console.log(result[i]);
+  }
 }
 
 

@@ -12,13 +12,13 @@
  * base.
  */
 function createGreaterThanFilter(base) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
+    return function greaterThan(value) {
+        if (base > value) {
+            return false;
+        } else return true;
+    };
 }
+console.log(createGreaterThanFilter(14)(15));
 
 /** 
  * Given an input base to test against, which could be a String or Number, 
@@ -26,13 +26,13 @@ function createGreaterThanFilter(base) {
  * base.
  */
 function createLessThanFilter(base) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
+    return function lessThan(value) {
+        if (base < value) {
+            return false;
+        } else return true;
+    };
 }
+console.log(createLessThanFilter(15)(14));
 
 /** 
  * Given a startsWith character, which will be a single character, return a 
@@ -40,12 +40,11 @@ function createLessThanFilter(base) {
  * character.
  */
 function createStartsWithFilter(startsWith) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
+    return function startsWithFilter(value) {
+        if (startsWith.toLowerCase() === value[0].toLowerCase()) {
+            return true;
+        } else return false;
+    };
 }
 
 /** 
@@ -54,12 +53,11 @@ function createStartsWithFilter(startsWith) {
  * character.
  */
 function createEndsWithFilter(endsWith) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
+    return function endsWithFilter(value) {
+        if (endsWith.toLowerCase() === value[value.length - 1].toLowerCase()) {
+            return true;
+        } else return false;
+    };
 }
 
 /** 
@@ -70,14 +68,15 @@ function createEndsWithFilter(endsWith) {
  * the modify Function, but we need to collect the results into some collection.
  */
 function modifyStrings(strings, modify) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
+    var modified = [];
+    for(let i = 0; i < strings.length; i++) {
+        modified.push(modify(strings[i]));
+    }
+    return modified;
 }
 
+//console.log(modifyStrings(["Hello", "my", "friend"], function(str) {return str.toLowerCase()}));
+       
 /** 
  * Given an Array of Strings and a Function designed to test the String in some 
  * way and return a Boolean on whether it passed, return true if ALL Strings pass the test.
@@ -88,12 +87,12 @@ function modifyStrings(strings, modify) {
  * TIP: You need to loop over the Strings, right? And pass them to the test?
  */
 function allStringsPass(strings, test) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
+    for(let i = 0; i < strings.length; i++) {
+       if (!test(strings[i])) {
+           return false;
+    } //just use the 'test' function, it doesn't matter what it does.
+    }   
+    return true;
 }
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////

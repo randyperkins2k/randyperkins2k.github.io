@@ -13,12 +13,10 @@
  * work?
  */
 function isArray(value) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
+    //check if value is an array using Array.isArray() method.
+    //typeOf() method on an array would return 'object'.
+    //try with ternary operator!
+    return Array.isArray(value) ? true : false;
 }
 
 /** 
@@ -30,12 +28,13 @@ function isArray(value) {
  * with typeof.
  */
 function isObject(value) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
+   if (Object.prototype.toString.call(value) !== '[object Date]' 
+      && value !== null && Array.isArray(value) === false 
+      && typeof value === 'object') {
+        return true;
+   } else {
+     return false;
+   }
 }
 
 /** 
@@ -45,12 +44,11 @@ function isObject(value) {
  * TIP: Similar to isObject, but we must return true if the value is an Array.
  */
 function isCollection(value) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
+    if (Object.prototype.toString.call(value) !== '[object Date]'  
+       && value !== null 
+       && typeof value === 'object') {
+        return true;
+    } else return false;
 }
 
 /**
@@ -73,12 +71,10 @@ function isCollection(value) {
  *    typeOf([1,2,3]) -> "array"
  */ 
 function typeOf(value) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
+    if (value === null) return 'null';
+    else if (Array.isArray(value)) return 'array';
+    else if (value instanceof Date === true) return 'date';
+    else return typeof value;
 }
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////

@@ -22,17 +22,17 @@
  *  c. you'll wanna make use of the push() method of Array.
  */
 function range(start, end) {
-    // YOUR CODE GOES BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE GOES ABOVE HERE //
+    var x = [];
+    if (start > end) {
+        for (var i = start; i >= end; i--) {
+        x.push(i);
+    }
+    } else {
+        for (var i = start; i <= end; i++) {
+        x.push(i);
+    }
+    } return x;
 }
-
-
-
-
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&
