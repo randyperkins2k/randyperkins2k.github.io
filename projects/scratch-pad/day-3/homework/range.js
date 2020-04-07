@@ -22,15 +22,24 @@
  *  c. you'll wanna make use of the push() method of Array.
  */
 function range(start, end) {
+    //create variable for an empty array to store the resulting numbers.
     var x = [];
+    //two loops are needed: one for if the first argument is larger than the
+    //second, and a second loop for if the second argument is the larger of 
+    //the two arguments.
+    //set up conditional 'if' statement for if the first argument is greater.
     if (start > end) {
+    //use a for loop which decrements from start value to end value.
         for (var i = start; i >= end; i--) {
         x.push(i);
     }
+    //use an else statement with the assumption that (start < end), and create
+    //another for loop which increments from start to end value.
     } else {
         for (var i = start; i <= end; i++) {
         x.push(i);
     }
+    //return the array of values.
     } return x;
 }
 

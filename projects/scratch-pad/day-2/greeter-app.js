@@ -34,7 +34,9 @@
  */
 
 function greeter(hour) {
-   if (hour <= 11) {
+    //use if/else if statements and comparison operators (&&, <=, >==).
+    if (hour <= 11) {
+    //use console.log() to print messages to the console.
         console.log('Good Morning!');
     } else if (hour >= 12 && hour <= 16) {
         console.log('Good Afternoon!');
@@ -43,6 +45,7 @@ function greeter(hour) {
     } else {
         console.log('Good Night!');
     }
+    //no need for return statement.
 }
 
 /*

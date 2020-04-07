@@ -13,6 +13,7 @@
  * work?
  */
 function length(string) {
+    //use length property on the given string: .length.
     return string.length;
 }
 
@@ -20,6 +21,8 @@ function length(string) {
  * Given an input String, return a new String forced to lowercase.
  */
 function toLowerCase(string) {
+    //use toLowerCase() method to convert all letters
+    //in the string to lower case.
     return string.toLowerCase();
 }
 
@@ -27,6 +30,8 @@ function toLowerCase(string) {
  * Given an input String, return a new String forced to uppercase.
  */
 function toUpperCase(string) {
+    //use toUpperCase() method to convert all letters
+    //in the string to upper case.
    return string.toUpperCase();
 }
 
@@ -44,6 +49,9 @@ function toUpperCase(string) {
  *      See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Using_global_and_ignore_with_replace()
  */
 function toDashCase(string) {
+    //use .replace() method to replace spaces with dash.
+    //use regex term for spaces, \s, as element to be replaced.
+    //convert all string characters to lower case.
     return string.replace(/\s/g, '-').toLowerCase();
 }
 
@@ -60,6 +68,10 @@ function toDashCase(string) {
  *      ensure uppercase and lowercase can be compared equally?
  */
 function beginsWith(string, char) {
+    //both elements for comparison - the first letter of string, and
+    //char letter - need to be same case to be tested. Convert to lower case.
+    //we can access first letter of string using index 0.
+    //test by using the 'if' conditional. Otherwise, we can return false.
      if (string[0].toLowerCase() == char.toLowerCase()) {
       return true;
     } return false;
@@ -78,6 +90,9 @@ function beginsWith(string, char) {
  *      ensure uppercase and lowercase can be compared equally?
  */
 function endsWith(string, char) {
+    //same problem as beginsWith function, except using last letter as 
+    //comparison.
+    //access last character of string via index, using .length-1.
     return string[string.length - 1]
       .toLowerCase() === char[0].toLowerCase() ? true : false;
 }
@@ -88,6 +103,7 @@ function endsWith(string, char) {
  * TIP: What's the operator to concatenate two Strings?
  */
 function concat(stringOne, stringTwo) {
+    //combine two strings using .concat() method.
     return stringOne.concat(stringTwo);
 }
 
@@ -102,6 +118,8 @@ function concat(stringOne, stringTwo) {
  *      in an Array called args.
  */
 function join(stringOne, stringTwo) {
+    //use .join() method to combine strings.
+    //access all strings by using rest parameters and the arguments object.
     return [...arguments].join('');
 }
 
@@ -115,7 +133,9 @@ function join(stringOne, stringTwo) {
  * TIP: What property of the String do we need to compare?
  */
 function longest(stringOne, stringTwo) {
-     return stringOne.length > stringTwo.length ? stringOne : stringTwo;
+    //compare by using length property, and logical operator '>'.
+    //use ternary operator for concision.
+    return stringOne.length > stringTwo.length ? stringOne : stringTwo;
 }
 
 /**
@@ -126,6 +146,9 @@ function longest(stringOne, stringTwo) {
  * TIP: How can we compare Strings? Is 'a' greater than or less than 'b'?
  */
 function sortAscending(stringOne, stringTwo) {
+    //use logical operators to compare string values.
+    //we can just compare the characters directly, without needing to use
+    //character code.
     if (stringOne > stringTwo) {
         return -1;
     } else if (stringTwo > stringOne) { 
@@ -135,7 +158,6 @@ function sortAscending(stringOne, stringTwo) {
     }
 }
 
-
 /**
  * Given two Strings, return 1 if the first is lower in alphabetical order than
  * the second, return -1 if the second is lower in alphabetical order than the
@@ -144,6 +166,7 @@ function sortAscending(stringOne, stringTwo) {
  * TIP: How can we compare Strings? Is 'a' greater than or less than 'b'?
  */
 function sortDescending(stringOne, stringTwo) {
+    //we use same method as sortAscending.
     if (stringOne < stringTwo) {
         return -1;
     } else if (stringTwo < stringOne) { 
@@ -152,7 +175,6 @@ function sortDescending(stringOne, stringTwo) {
         return 0;
     }
 }
-
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&
@@ -167,6 +189,6 @@ if((typeof process !== 'undefined') &&
     module.exports.concat = concat;
     module.exports.join = join;
     module.exports.longest = longest;
-    module.exports.sortAscending = sortAscending
+    module.exports.sortAscending = sortAscending;
     module.exports.sortDescending = sortDescending;
 }

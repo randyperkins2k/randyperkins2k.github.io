@@ -28,13 +28,19 @@ function isArray(value) {
  * with typeof.
  */
 function isObject(value) {
-   if (Object.prototype.toString.call(value) !== '[object Date]' 
+    //account for any data types which will return 'object': null, Date, and
+    //array. Filter these values out, by using conditional if statement which 
+    //only returns true if the value is an object.
+    //account for Date:
+    if (value instanceof Date === false
+    //account for null and array:
       && value !== null && Array.isArray(value) === false 
+    //finally, account for object:
       && typeof value === 'object') {
         return true;
-   } else {
-     return false;
-   }
+    } else {
+      return false;
+    }
 }
 
 /** 
@@ -44,8 +50,14 @@ function isObject(value) {
  * TIP: Similar to isObject, but we must return true if the value is an Array.
  */
 function isCollection(value) {
-    if (Object.prototype.toString.call(value) !== '[object Date]'  
-       && value !== null 
+    //account for any data types which are not collections: null, and date. 
+    //Filter these values out, by using conditional if statement which 
+    //only returns true if the value is a collection.
+    //account for Date:
+    if (value instanceof Date === false
+    //account for null:
+       && value !== null
+    //return true for object or array:
        && typeof value === 'object') {
         return true;
     } else return false;
@@ -71,9 +83,14 @@ function isCollection(value) {
  *    typeOf([1,2,3]) -> "array"
  */ 
 function typeOf(value) {
+    //account for data types which return 'object' but are not objects.
+    //first, null:
     if (value === null) return 'null';
+    //next, array:
     else if (Array.isArray(value)) return 'array';
+    //next, date:
     else if (value instanceof Date === true) return 'date';
+    //finally, all other data types that return correctly when using 'typeof':
     else return typeof value;
 }
 

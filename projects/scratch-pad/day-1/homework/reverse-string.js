@@ -20,7 +20,10 @@
  */
 
 function reverseString(input) {
-    return input.split('').reverse().join('');
+  //split string into array.
+  //use .reverse() method.
+  //use .join() method to convert back into string.
+  return input.split('').reverse().join('');
 }
 
 

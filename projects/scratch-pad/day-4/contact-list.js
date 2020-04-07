@@ -36,6 +36,8 @@
  */
 
 function makeContact(id, nameFirst, nameLast) {
+    //create contact by assigning parameters into key/value pairs within an 
+    //object.
     return { id: id,
            nameFirst: nameFirst,
            nameLast: nameLast
@@ -44,30 +46,50 @@ function makeContact(id, nameFirst, nameLast) {
 
 
 function makeContactList() {
+    //create an empty array to store contacts.
     var contacts = [];
+    //create a contact-list that manages contacts, and includes length,
+    //addContact, findContact, removeContact, and printAllContactNames 
+    //properties.
     return {
+    //length property is a function that returns the length of the contacts
+    //array, thus the total number of contacts.
         length: function() {
             return contacts.length;
         },
+    //addContact property stores newly created contacts in the contact array.
         addContact: function(contact) {
             contacts.push(contact);
         },
+    //findContact property takes a fullName parameter and searches for that
+    //name in the contacts array.
         findContact: function(fullName) {
+    //use a for loop to iterate through the contacts array to see if there
+    //is a match.
             for(var i = 0; i < contacts.length; i++){
+    //use .nameFirst and .nameLast properties of each contact to compare to 
+    //the fullName parameter.
                 if(contacts[i].nameFirst + ' ' + contacts[i].nameLast === fullName) {
                     return contacts[i];
                 } else {
+    //return the contact if there is a match, otherwise return undefined.
                     return undefined;
                 }
             }
         },
+    //use array method .pop() to remove a specified contact.
         removeContact: function(contact) {
             return contacts.pop(contact);
         },
+    //create a property which prints just the name of each contact.
         printAllContactNames: function(contact) {
+    //create an empty array to store the names.
             var printContacts = [];
+    //use a for loop to iterate through the contacts array and populate the 
+    //empty array with the full name of each contact.
             for(var i = 0; i < contacts.length; i++){
                 printContacts.push(contacts[i].nameFirst + ' ' + contacts[i].nameLast);
+    //return the list using .join() to create a new line for each full name.
             } return printContacts.join("\n");
         }
         

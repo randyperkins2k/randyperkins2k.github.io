@@ -12,13 +12,15 @@
  * base.
  */
 function createGreaterThanFilter(base) {
+    //create a return statement that contains another function, which itself
+    //will take a parameter named 'value'.
     return function greaterThan(value) {
+    //using an if statement, compare the 'base' and 'value' parameters.
         if (base > value) {
             return false;
         } else return true;
     };
 }
-console.log(createGreaterThanFilter(14)(15));
 
 /** 
  * Given an input base to test against, which could be a String or Number, 
@@ -26,13 +28,15 @@ console.log(createGreaterThanFilter(14)(15));
  * base.
  */
 function createLessThanFilter(base) {
+    //create a return statement that contains another function, which itself
+    //will take a parameter named 'value'.
     return function lessThan(value) {
+    //using an if statement, compare the 'base' and 'value' parameters.
         if (base < value) {
             return false;
         } else return true;
     };
 }
-console.log(createLessThanFilter(15)(14));
 
 /** 
  * Given a startsWith character, which will be a single character, return a 
@@ -40,7 +44,12 @@ console.log(createLessThanFilter(15)(14));
  * character.
  */
 function createStartsWithFilter(startsWith) {
+    //add a function, startsWithFilter(), to the return statement.
+    //this new function will compare the 'startsWith' character to a new
+    //parameter named 'value'
     return function startsWithFilter(value) {
+    //convert both characters to lower case for comparison.
+    //use the zero index of 'value' for comparison.
         if (startsWith.toLowerCase() === value[0].toLowerCase()) {
             return true;
         } else return false;
@@ -53,7 +62,12 @@ function createStartsWithFilter(startsWith) {
  * character.
  */
 function createEndsWithFilter(endsWith) {
+    //add a function, startsWithFilter(), to the return statement.
+    //this new function will compare the 'startsWith' character to a new
+    //parameter named 'value'
     return function endsWithFilter(value) {
+    //convert both characters to lower case for comparison.
+    //use the [value.length - 1] index of 'value' for comparison.
         if (endsWith.toLowerCase() === value[value.length - 1].toLowerCase()) {
             return true;
         } else return false;
@@ -68,10 +82,14 @@ function createEndsWithFilter(endsWith) {
  * the modify Function, but we need to collect the results into some collection.
  */
 function modifyStrings(strings, modify) {
+    //create an empty array to store the modified elements.
     var modified = [];
+    //write a for loop which subjects each element to the modify function.
     for(let i = 0; i < strings.length; i++) {
+    //push the modified elements into the new array.
         modified.push(modify(strings[i]));
     }
+    //return the new array.
     return modified;
 }
 
@@ -87,11 +105,15 @@ function modifyStrings(strings, modify) {
  * TIP: You need to loop over the Strings, right? And pass them to the test?
  */
 function allStringsPass(strings, test) {
+    //create a for loop which iterates through the 'strings' value.
+    //within the loop, subject each element to the 'test' function.
+    //if even one element fails the 'test', return 'false'.
     for(let i = 0; i < strings.length; i++) {
        if (!test(strings[i])) {
            return false;
-    } //just use the 'test' function, it doesn't matter what it does.
+    } 
     }   
+    //otherwise, all elements will have passed, thus we can return 'true'!
     return true;
 }
 

@@ -14,14 +14,10 @@
  */
 function print(value) {
   // YOUR CODE BELOW HERE //
+  // use console.log to print to console//
   console.log(value);
   // YOUR CODE ABOVE HERE //
 }
-
-
-
-
-
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&
