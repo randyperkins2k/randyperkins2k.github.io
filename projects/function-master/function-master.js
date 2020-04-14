@@ -3,7 +3,8 @@
 //////////////////////////////////////////////////////////////////////
 
 function objectValues(object) {
-
+    //using Object.values() returns all of an object's values in an array.
+    return Object.values(object);
 } 
 
 //////////////////////////////////////////////////////////////////////
@@ -11,7 +12,9 @@ function objectValues(object) {
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
-
+    //using Object.keys() returns all of the keys of an object, but in an array.
+    //use .join(' ') method to join the array into a string, with spaces.
+    return Object.keys(object).join(' ');
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -19,7 +22,18 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-    
+    //create empty array to store values.
+    var array = [];
+    //use a for/in loop to compile all of the object's values.
+    for (var key in object) {
+    //we only want values that are string values.
+     if (typeof object[key] === 'string') {
+    //push the keys into array.
+     array.push(object[key]);
+    }
+  }
+    //join the array into a string, with spaces.
+  return array.join(' ');
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -27,7 +41,13 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
-    
+    //test for array.
+    if (Array.isArray(collection)) {
+        return "array";
+    //test for object.
+    } else if (typeof collection === "object") {
+        return "object";
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -35,7 +55,10 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
-    
+    //since it is a single word, we can just use the indexed value of the 
+    //first letter, [0]. Then we concatenate that letter with the rest,
+    //using slice.
+    return string[0].toUpperCase() + string.slice(1);
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -43,7 +66,18 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    
+    //split string into an array of individual words.
+    var splitString = string.split(' ');
+    //create an empty array.
+    var array = [];
+    //iterate through array of words, and simultaneously convert first
+    //letter of each word ([i]) to upper case, and push the word into
+    //the empty array.
+    for (var i = 0; i < splitString.length; i++) {
+      array.push(splitString[i][0].toUpperCase() + splitString[i].slice(1));
+    }
+    //join the array into a string.
+    return array.join(' ');
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -51,7 +85,9 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-
+    //we can directly access the object key/value pair of names, and concatenate
+    //with the welcome message.
+    return "Welcome " + object.name[0].toUpperCase() + object.name.slice(1) + "!";
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -59,7 +95,10 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
-
+    //return the object name and species in a message by using dot notation
+    //and the indexed values to convert to upper case.
+    return object.name[0].toUpperCase() + object.name.slice(1) + " is a " 
+    + object.species[0].toUpperCase() + object.species.slice(1);
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -67,7 +106,15 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-
+    //use conditional statements to check if an object has a property and 
+    //that it is not empty. 
+    if (object.hasOwnProperty('noises') && object['noises'].length > 0) {
+    //if it meets that criteria, return the values.
+     return object.noises.join(' ');
+   } else {
+    //if it doesn't meet criteria, return a message.
+       return "there are no noises";   
+   }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -75,15 +122,21 @@ function maybeNoises(object) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-
+    //using .search() method, if the word is in the string, its value will
+    //be zero or greater.
+    if (string.search(word) > -1) {
+      return true;
+    } return false;
 }
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 11 - Add Friend //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+   object.friends.push(name);
+   return object; 
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -91,7 +144,14 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
-
+    //first we make sure there are keys in the object.
+  if (Object.keys(object).length === 0) {
+    return false;
+  }
+    //next, we use .includes() method to see if name is in the friends array.
+  if (object.friends.includes(name)) {
+    return true;
+  } return false;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -99,7 +159,16 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-
+    //create empty array.
+  var non = [];
+    //iterate through friends array. if name is not included, push into
+    //empty array.
+  for (var i = 0; i < array.length; i++) {
+    if (array[i].name !== name && array[i].friends.includes(name) === false) {
+      non.push(array[i].name);
+    }
+    //return the new array!
+  } return non;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -107,7 +176,10 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
+    //assign a new key, [key], to the object, and assign the new value.
+  object[key] = value;
+    //return the updated object.
+  return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -115,7 +187,12 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-
+    //iterate through the array.
+  for (var i = 0; i < array.length; i++) {
+    //delete the properties listed in the array.
+    delete object[array[i]];
+    //return the updated object.
+  } return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -123,7 +200,9 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
+    //we can create a new array with duplicates removed by using the Set
+    //keyword.
+  return [...new Set(array)];
 }
 
 //////////////////////////////////////////////////////////////////////
